@@ -1,6 +1,5 @@
 import js from "@eslint/js";
 import pluginQuery from "@tanstack/eslint-plugin-query";
-import pluginRouter from "@tanstack/eslint-plugin-router";
 import eslintConfigPrettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -20,6 +19,7 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
+        React: "readonly",
       },
     },
     plugins: {
@@ -32,19 +32,7 @@ export default [
       ...js.configs.recommended.rules,
       ...tseslint.configs.recommended[0].rules,
       ...reactHooks.configs.recommended.rules,
-      "prettier/prettier": [
-        "error",
-        {
-          trailingComma: "all",
-          semi: false,
-          tabWidth: 2,
-          singleQuote: true,
-          printWidth: 80,
-          endOfLine: "auto",
-          arrowParens: "always",
-          plugins: ["prettier-plugin-tailwindcss"],
-        },
-      ],
+      "prettier/prettier": ["error"],
     },
   },
   eslintConfigPrettier,
