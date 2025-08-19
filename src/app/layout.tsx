@@ -16,15 +16,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        <AnimatedThemeToggler />
+      <body suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         />
-        <Providers>{children}</Providers>
+        <Providers>
+          <AnimatedThemeToggler />
+          {children}
+        </Providers>
       </body>
     </html>
   );
