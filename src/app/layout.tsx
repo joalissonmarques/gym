@@ -1,3 +1,4 @@
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { ThemeProvider } from "@/components/theme-provider";
 import Providers from "@/providers";
 import type { Metadata } from "next";
@@ -14,8 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <AnimatedThemeToggler />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
