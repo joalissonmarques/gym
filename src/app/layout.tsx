@@ -1,4 +1,3 @@
-import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { ThemeProvider } from "@/components/theme-provider";
 import Providers from "@/providers";
 import type { Metadata } from "next";
@@ -23,10 +22,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         />
-        <Providers>
-          <AnimatedThemeToggler />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
